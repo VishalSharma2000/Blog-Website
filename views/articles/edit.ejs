@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+
+<% if(error) { %>
+    <h3 style="color: red;">Some Error. Please Try Again.</h3>
+<% } %>
+<h1 class="mb-4">Edit Article</h1>
+
+<!-- Since slug is made from use id rather than slug for reference, bcoz user may change title.  -->
+<form action="/articles/edit/<%= article.id %>?_method=PUT" style="width: 50rem;" method="POST">
+    <%- include('../partials/form_field') %>
+</form>
+
+<%- include('../partials/footer') %> 

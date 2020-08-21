@@ -1,0 +1,29 @@
+<!-- everytime google db crawls on any page on internet, it clicks on every link of the page.
+So, if we have a link for deleting a blog on our website then everytime google checks our website all the blogpost will be deleted -->
+<%- include('../partials/header.ejs') %>
+
+<% if(found === false) { %>
+    <h1 class="mb-2">some error.</h1>
+<% } %>
+
+<h1 class="mb-4">Blog Website</h1>
+<a href="/articles/new" class="btn btn-primary">New Article</a>
+
+<% articles.forEach((article) => { %>
+    <div class="card mt-5 mb-3" style="width: 50rem;">
+        <div class="card-body">
+            <h3 class="card-title"><%= article.title %></h3>
+            <h6 class="card-subtitle mb-2 text-muted"><%= article.createdAt %></h6>
+            <h6 class="card-subtitle mt-3 mb-2 text-muted"><%= article.description %></h6>
+            <p class="card-text"><%- article.sanitizeHtml.substr(0, 300) %> <a href="/articles/<%= article.slug %>">...Read More</a></p>
+            <!-- TODO: don't show edit and delete button to anonymous user -->
+            <a href="/articles/edit/<%= article.id %>" class="card-link btn btn-secondary">Edit</a>
+            <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline ml-3">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+
+        </div>
+    </div>
+<% }) %>
+
+<%- include('../partials/footer.ejs') %>

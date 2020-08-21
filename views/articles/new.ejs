@@ -1,0 +1,12 @@
+<%- include('../partials/header') %>
+
+<% if(error) { %>
+    <h3 style="color: red;">Some Error. Please Try Again.</h3>
+<% } %>
+<h1 class="mb-4">New Article</h1>
+
+<form class="newPost" action="/articles/new" style="width: 50rem;" method="POST">
+    <%- include('../partials/form_field') %>
+</form>
+
+<%- include('../partials/footer') %> 

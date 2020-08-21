@@ -1,0 +1,23 @@
+{
+  "name": "blogwebproject",
+  "version": "1.0.0",
+  "description": "Blog Website Project",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./src/app.js -e js,ejs"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dompurify": "^2.0.12",
+    "ejs": "^3.1.3",
+    "ejs-lint": "^1.1.0",
+    "express": "^4.17.1",
+    "jsdom": "^16.3.0",
+    "marked": "^1.1.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.9.19",
+    "quill": "^1.3.7",
+    "slugify": "^1.4.4"
+  }
+}
